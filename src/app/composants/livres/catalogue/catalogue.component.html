@@ -1,0 +1,28 @@
+<app-header></app-header>
+<main class="py-8">
+  <h1 class="font-titre lg:text-5xl font-medium my-8 text-center text-2xl">Les oeuvres de notre catalogue</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 justify-items-center ">
+    @for (livre of livres(); track livre.id) {
+    <article
+      class="w-[280px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:cursor-pointer transition-all ease-in-out ">
+      <div class="relative h-[300px] mt-3">
+        <img [src]="livre.imageLien" [alt]="'Couverture du livre ' + livre.titre"
+          class="absolute inset-0 w-full h-full object-contain">
+      </div>
+      <div class="p-3">
+        <h2 class="text-lg font-semibold line-clamp-2">{{ livre.titre}}</h2>
+        <p class="text-sm text-gray-600 mt-1">{{livre.auteur }}</p>
+      </div>
+      <div class="px-3 pb-3 flex justify-between items-center">
+        <span class="text-lg font-bold">{{ livre.prix }} €</span>
+        <button (click)="ajouterLivreAuPanier(livre)"
+          class="bg-green-600 text-white hover:bg-green-700 px-3 py-1 rounded-md transition-colors text-sm">
+          Ajouter au panier
+        </button>
+      </div>
+    </article>
+
+    }
+  </div>
+</main>
+<app-footer bgColor="bg-beigeLight"></app-footer>

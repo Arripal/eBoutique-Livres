@@ -1,0 +1,26 @@
+<article class="flex py-3 ">
+  <div class="flex items-center">
+    <img class="w-24  outline outline-1 h-36 object-cover mr-6 ml-1" [src]="livre.livre.imageLien"
+      [alt]="livre.livre.titre">
+    <div>
+      <h3 class="text-xl font-semibold">{{ livre.livre.titre }}</h3>
+      <p class="pt-1">par {{livre.livre.auteur}}</p>
+      <p class="text-gray-500 pt-2"> {{livre.livre.annee}}</p>
+      <p class="font-medium mt-2">{{livre.livre.prix}} €</p>
+      <div class="flex items-center mt-2">
+        <button (click)="emettreDiminuerQuantite()" [disabled]="livre.quantite <= quantiteMinimum"
+          class="px-2 py-1 bg-gray-200 rounded-l hover:bg-gray-300 transition-colors">
+          -
+        </button>
+        <span class="px-4 py-1 bg-gray-100">{{livre.quantite}}</span>
+        <button (click)="emettreAugmenterQuantite()" [disabled]="livre.quantite >= quantiteMaximum"
+          class="px-2 py-1 bg-gray-200 rounded-r hover:bg-gray-300 transition-colors">
+          +
+        </button>
+      </div>
+      <button (click)="emettreLivreId()" class="text-red-500 p-2 pl-0 font-medium hover:text-red-600 transition-colors">
+        Supprimer
+      </button>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,7 @@
+@media (min-width: 1024px) {
+  nav {
+    display: flex !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

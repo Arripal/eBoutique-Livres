@@ -1,0 +1,63 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div
+    class="sm:max-w-md sm:w-full space-y-8 bg-white outline outline-gray-300 outline-1 px-10 py-16 rounded-xl shadow-md">
+    <h2 class="text-center text-3xl font-medium text-gray-900">
+      Connexion
+    </h2>
+    <form [formGroup]="formulaireConnexion" (ngSubmit)="envoieFormulaire()" class="shadow-sm space-y-6">
+      <div class="rounded-md -space-y-px">
+        <div>
+          <label class="font-medium" for="email">Adresse e-mail</label>
+          <input id="email" formControlName="email" type="email" required
+            class="mt-2  rounded relative block w-full px-3 py-3 border border-gray-400 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-600 focus:border-green-600 focus:z-10 sm:text-sm"
+            placeholder="Adresse e-mail">
+          <div class="h-5 mt-1 mb-2">
+            @if(adresseEmail.hasError('email') && adresseEmail.dirty ){
+            <p class="text-red-500 italic text-sm">Veuillez renseigner une adresse e-mail valide.</p>
+            }
+            @if(adresseEmail.hasError('required') && adresseEmail.dirty ){
+            <p class="text-red-500 italic text-sm">Adresse e-mail obligatoire.</p>
+            }
+          </div>
+        </div>
+        <div>
+          <label class="font-medium" for="motdepasse">Mot de passe</label>
+          <input id="motdepasse" formControlName="motdepasse" type="password" required
+            class="mt-2  rounded relative block w-full px-3 py-3 border border-gray-400 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-600 focus:border-green-600 focus:z-10 sm:text-sm"
+            placeholder="Mot de passe">
+          <div class="h-5 my-1 mb-2">
+            @if(motdepasse.hasError('minlength') && motdepasse.dirty){
+            <p class="text-red-500 italic text-sm">Votre mot de passe doit contenir au moins
+              {{motdepasse.getError('minlength').requiredLength}} caractères.
+            </p>
+            }
+            @if(motdepasse.hasError('maxlength') && motdepasse.dirty){
+            <p class="text-red-500 italic text-sm">Votre mot de passe doit contenir au maximum
+              {{motdepasse.getError('maxlength').requiredLength}} caractères.
+            </p>
+            }
+            @if(motdepasse.hasError('pattern') && motdepasse.dirty){
+            <p class="text-red-500 italic text-sm">Votre mot de passe ne doit pas contenir de caractères spéciaux.
+            </p>
+            }
+          </div>
+        </div>
+        @if(erreurConnexion){
+        <span class="m-0 text-red-500 italic text-sm">{{erreurConnexion}}
+        </span>
+        }
+      </div>
+      <button type="submit" [disabled]="formulaireConnexion.invalid"
+        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 cursor-pointer">
+        Se connecter
+      </button>
+    </form>
+    <div class="text-center">
+      <a routerLink="/auth/inscription" class="font-medium text-green-600 hover:text-green-500">
+        Créer un compte
+      </a>
+    </div>
+  </div>
+</div>
+
+<app-footer class="outline outline-1 outline-photo fixed bottom-0 right-0 left-0"></app-footer>

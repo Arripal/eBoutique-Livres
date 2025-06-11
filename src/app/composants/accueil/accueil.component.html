@@ -1,0 +1,45 @@
+<div class="flex flex-col lg:h-screen">
+  <app-header></app-header>
+  <div class="bg-beigeLight px-3 py-20 lg:px-48 lg:py-36 lg:flex flex-grow justify-between overflow-auto">
+    <section class="max-w-xl">
+      <h2 class="font-titre leading-tight  text-3xl lg:leading-snug lg:text-5xl font-medium mb-8 ">Plongez dans des
+        mondes infinis :
+        votre
+        prochaine
+        aventure
+        littéraire vous attend ici</h2>
+      <p class="lg:text-xl text-lg mb-8 leading-normal">Un havre de paix pour les amoureux des livres : une sélection
+        soigneusement
+        choisie qui
+        répond à tous les goûts, des best-sellers aux trésors cachés.
+      </p>
+      <button
+        class="bg-green-600  text-white font-medium text-xl py-6 px-10 lg:py-8 lg:px-12 rounded transition-colors duration-300 ease-in-out hover:bg-green-700"
+        routerLink="/catalogue">
+        Accéder au catalogue
+      </button>
+    </section>
+    <section class="max-w-80 lg:max-w-lg  lg:w-full h-96  mt-20 outline outline-1 outline-photo rounded relative">
+      <img class="w-full h-full rounded absolute left-4 bottom-4 object-cover" src="livres.jpg"
+        alt="photo de livres anciens">
+    </section>
+
+  </div>
+</div>
+<div class="flex flex-col lg:justify-between lg:flex-row px-3 py-20 lg:px-48 lg:py-36 overflow-auto">
+  <section class="max-w-xl">
+    <h3 class="font-titre text-3xl font-semibold mb-8">Notre librairie</h3>
+    <p class="text-xl leading-normal mb-8">Avec un espace chaleureux et convivial, notre librairie devient un lieu de
+      rencontre où les
+      lecteurs peuvent échanger, découvrir et s'enrichir mutuellement.
+      Située en plein cœur de la ville, notre librairie est facilement accessible à tous.
+      Venez nous rendre visite et
+      laissez-vous séduire par notre sélection littéraire !
+    </p>
+  </section>
+  <section class="max-w-80 lg:max-w-lg w-full h-96  outline outline-1 outline-photo rounded relative">
+    <img class="w-full h-full rounded absolute left-4 bottom-4 object-cover" src="librairie.avif"
+      alt="photo de librairie">
+  </section>
+</div>
+<app-footer bgColor="bg-beigeLight"></app-footer>
