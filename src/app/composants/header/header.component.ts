@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -8,10 +8,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
-  estMenuOuvert = false;
+export class HeaderComponent implements OnInit {
+  ngOnInit(): void {
+    this.gererAuthMessage();
+  }
 
+  estMenuOuvert = signal<boolean>(false);
+
+  authMessage = signal('Se connecter');
+
+  gererAuthMessage() {
+    let jetonExistant = localStorage.getItem('auth');
+
+    if (!jetonExistant) {
+      return;
+    }
+
+    this.authMessage.set('Mon Compte');
+  }
   gererMenuNavigation() {
-    this.estMenuOuvert = !this.estMenuOuvert;
+    this.estMenuOuvert.set(!this.estMenuOuvert());
   }
 }

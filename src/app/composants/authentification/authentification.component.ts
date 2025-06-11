@@ -67,6 +67,14 @@ export class AuthentificationComponent {
         return (this.erreurConnexion = 'Les identifiants sont invalides.');
       }
 
+      localStorage.setItem(
+        'auth',
+        JSON.stringify({
+          token: 'vevkiejvioze~~~]o¤¤jezjep',
+          client: client.prenom,
+        })
+      );
+
       this.router.navigate(['/']);
     }
   }

@@ -1,19 +1,18 @@
 <header class="flex justify-between items-center  py-8 px-3 lg:px-8 bg-beigeLight">
   <h1 class="font-titre  lg:text-5xl text-2xl">Dupont Editions</h1>
   <button class="lg:hidden z-20" (click)="gererMenuNavigation()">
-    @if(estMenuOuvert){
+    @if(estMenuOuvert()){
     <i class="fa-solid fa-x"></i>
     }@else {
     <i class="fa-solid fa-bars"></i>
     }
   </button>
-  <nav [class]="{ 'hidden' : !estMenuOuvert}"
+  <nav [class]="{ 'hidden' : !estMenuOuvert()}"
     class="flex flex-col px-10 py-32 lg:flex-row lg:justify-between h-dvh lg:h-auto lg:px-0 lg:py-0 z-10 lg:w-96 absolute top-0  right-0 bg-beigeLight lg:relative">
     <a class="sm:text-xl text-lg font-medium hover:text-slate-600 py-4 lg:py-0" routerLink="/catalogue"
       routerLinkActive="active">Catalogue</a>
     <a class="sm:text-xl text-lg font-medium hover:text-slate-600 py-4 lg:py-0" routerLink="/auth"
-      routerLinkActive="active">Se
-      connecter</a>
+      routerLinkActive="active">{{authMessage()}}</a>
     <a class="sm:text-xl text-lg font-medium hover:text-slate-600 py-4 lg:py-0" routerLink="/panier"
       routerLinkActive="active">Panier</a>
   </nav>
