@@ -139,6 +139,7 @@ table {
 
 body {
   font-family: var(--font-basique);
+  overflow-x: hidden;
 }
 
 .font-titre {

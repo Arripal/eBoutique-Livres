@@ -1,22 +1,23 @@
-<app-header></app-header>
-@if( livresPanier().length > 0){
-<main class="flex-grow lg:px-48 px-3 py-20 lg:flex justify-between bg-beigeLight">
-  <div class="space-y-4 w-full mb-8 lg:w-2/3 bg-white p-4 rounded-lg shadow flex flex-col">
-    <h2 class="font-titre text-2xl lg:text-3xl my-6">Mon panier</h2>
-    <div class="flex-grow overflow-y-auto panier-scrollable scrollbar-modifiee">
-      <div class="space-y-4 px-1">
-        @for (livre of livresPanier(); track livre.id) {
-        <app-panier-livre [livre]="livre" (livreIdEmetteur)="suppressionLivreEtMiseAJourDuPanier($event)"
-          (incrementerQuantite)=augmenterQuantiteLivrePanier($event)
-          (decrementerQuantite)=diminuerQuantiteLivrePanier($event)></app-panier-livre>
-
-        }
+<div class="min-h-screen bg-beigeLight">
+  <app-header></app-header>
+  @if( livresPanier().length > 0){
+  <main class="flex-grow lg:px-48 px-3 py-20 lg:flex justify-between ">
+    <div class="space-y-4 max-h-[500px] w-full mb-8 lg:w-2/3 bg-white p-4 rounded-lg shadow flex flex-col">
+      <h2 class="font-titre text-2xl lg:text-3xl my-6">Mon panier</h2>
+      <div class="overflow-y-auto max-h-[60dvh] panier-scrollable scrollbar-modifiee">
+        <div class="space-y-4 px-1">
+          @for (livre of livresPanier(); track livre.id) {
+          <app-panier-livre [livre]="livre" (livreIdEmetteur)="suppressionLivreEtMiseAJourDuPanier($event)"
+            (incrementerQuantite)=augmenterQuantiteLivrePanier($event)
+            (decrementerQuantite)=diminuerQuantiteLivrePanier($event)></app-panier-livre>
+          }
+        </div>
       </div>
     </div>
-  </div>
-  <app-panier-prix-total [prixTotal]="prixTotalPanier()"
-    [nombreLivresPanier]="nombreDeLivresPanier()"></app-panier-prix-total>
-</main>
-}
-@if( livresPanier().length < 1 ) { <app-panier-vide></app-panier-vide> }
-  <app-footer class="lg:fixed lg:bottom-0 lg:right-0 lg:left-0" bgColor="lg:bg-beigeLight"></app-footer>
+    <app-panier-prix-total [prixTotal]="prixTotalPanier()"
+      [nombreLivresPanier]="nombreDeLivresPanier()"></app-panier-prix-total>
+  </main>
+  }
+  @if( livresPanier().length < 1 ) { <app-panier-vide></app-panier-vide> }
+    <app-footer class="lg:fixed lg:bottom-0 lg:right-0 lg:left-0" bgColor="lg:bg-beigeLight"></app-footer>
+</div>
