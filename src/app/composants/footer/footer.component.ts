@@ -7,6 +7,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './footer.component.html',
   styles: [],
 })
-export class FooterComponent {
-  @Input() bgColor: string = 'beigeLight';
-}
+export class FooterComponent {}

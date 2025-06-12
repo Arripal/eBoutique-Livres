@@ -71,7 +71,8 @@ export class AuthentificationComponent {
         'auth',
         JSON.stringify({
           token: 'vevkiejvioze~~~]o¤¤jezjep',
-          client: client.prenom,
+          prenom: client.prenom,
+          email: client.email,
         })
       );
 

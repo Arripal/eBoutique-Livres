@@ -11,11 +11,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.gererAuthMessage();
+    this.gererLienAuth();
   }
 
   estMenuOuvert = signal<boolean>(false);
 
   authMessage = signal('Se connecter');
+
+  lienAuth = signal<string>('/auth');
 
   gererAuthMessage() {
     let jetonExistant = localStorage.getItem('auth');
@@ -25,6 +28,16 @@ export class HeaderComponent implements OnInit {
     }
 
     this.authMessage.set('Mon Compte');
+  }
+
+  gererLienAuth() {
+    let jetonExistant = localStorage.getItem('auth');
+
+    if (!jetonExistant) {
+      return;
+    }
+
+    this.lienAuth.set('/compte');
   }
   gererMenuNavigation() {
     this.estMenuOuvert.set(!this.estMenuOuvert());

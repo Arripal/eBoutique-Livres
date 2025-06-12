@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../../client.type';
+import { AuthentificationService } from './authentification.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClientService {
-  constructor() {}
+  constructor(private authService: AuthentificationService) {}
 
   public recupererClient(email: string): Client | undefined {
     const clients = JSON.parse(localStorage.getItem('clients') || '[]');
@@ -22,5 +23,18 @@ export class ClientService {
     localStorage.setItem('clients', JSON.stringify(clients));
 
     return true;
+  }
+
+  public recupererClientLocalStorage() {
+    const jeton = this.authService.recupererAuthJeton();
+
+    if (!jeton) {
+      return null;
+    }
+    const data = JSON.parse(jeton);
+
+    const client = this.recupererClient(data?.email);
+
+    return client ? client : null;
   }
 }
