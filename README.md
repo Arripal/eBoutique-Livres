@@ -1,6 +1,6 @@
 # DupontEditions
 
-Demo Link : e-boutique-livres.vercel.app
+Lien vers la démo : [Dupont Editions](e-boutique-livres.vercel.app)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
 
